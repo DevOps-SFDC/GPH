@@ -1,0 +1,209 @@
+﻿h1, .h1, h2, .h2, h3, .h3 {
+    margin-bottom: 0;
+}
+
+.mbpshidden {
+    display:none;
+}
+
+.navbar-default .navbar-toggle {
+    background-color:#D1C99E;
+}
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        background-color: #00693C;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #fff;
+    }
+
+#side-menu {
+    background:#D1C99E;
+}
+
+.sidebar ul li > a {
+    color:#333;
+}
+
+.sidebar ul li > a:hover, .sidebar ul li > a:focus {
+    background:#00693C;
+    color:#fff;
+}
+
+.btn-success {
+    background-color:#284E36;
+    border-color:#284E36;
+}
+
+.command-panel {
+    /*float:right;*/
+    font-size:17px;
+}
+    .command-panel a {
+        color:#333;
+    }
+
+.command-button-panel {
+    padding:1em;
+}
+
+.table {
+    table-layout:fixed;
+}
+
+.table > tbody > tr:first-child {
+    background:#00693C !important;
+    color:#fff
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) {
+    background:#D1C99E;
+}
+
+.table a {
+    color:#333;
+}
+    .table a:hover {
+        text-decoration:underline;
+    }
+
+.panel-mgreen {
+    border-color: #00693C;
+}
+
+.panel-mgreen .panel-heading {
+    border-color: #00693C;
+    color: #fff;
+    background-color: #00693C;
+}
+
+.panel-mgreen a {
+    color: #00693C;
+}
+
+.panel-mgreen a:hover {
+    color: #5CB85C;
+}
+
+.panel-mbrown {
+    border-color: #B4A76C;
+}
+
+.panel-mbrown .panel-heading {
+    border-color: #B4A76C;
+    color: #333;
+    background-color: #B4A76C;
+}
+
+.panel-mbrown a {
+    color: #B4A76C;
+}
+
+.panel-mbrown a:hover {
+    color: #D1C99E;
+}
+
+.panel-jhgray {
+    border-color: #717272;
+}
+
+.panel-jhgray .panel-heading {
+    border-color: #717272;
+    color: #fff;
+    background-color: #717272;
+}
+
+.panel-jhgray a {
+    color: #717272;
+}
+
+.panel-jhgray a:hover {
+    color: #7A828C;
+}
+
+.panel-jhblue {
+    border-color: #32506A;
+}
+
+.panel-jhblue .panel-heading {
+    border-color: #32506A;
+    color: #fff;
+    background-color: #32506A;
+}
+
+.panel-jhblue a {
+    color: #32506A;
+}
+
+.panel-jhblue a:hover {
+    color: #1471AD;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #00693C;
+    color: #fff;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #00693C;
+    color: #fff;
+}
+
+.mbps > li > a {
+    background:#D1C99E;
+    color: #333;
+}
+
+.mbps > li > a:hover {
+    background:#717272;
+    color: #fff;
+}
+
+.alert {
+    padding:6px 12px;
+}
+
+.jumbotron {
+    padding: 1em;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #00693C;
+    border-color: #d6e9c6;
+    /*color: #fff;
+    cursor: default;
+    z-index: 2;*/
+}
+
+.pagination > li > a, .pagination > li > span {
+    /*background-color: #fff;
+    border: 1px solid #ddd;*/
+    color: #333;
+    /*float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;*/
+}
+
+
+/* jquery-ui overlay */
+.ui-widget-header {
+    /*color:#fff;*/
+}
+
+.ui-timepicker-div  .ui-datepicker-title {
+    color:#fff;
+}
+
+.ui-timepicker-div dd {
+    margin-left:40px;
+}
+
+#page-wrapper {
+    padding: 0 25px 0 15px;
+    min-height: 568px;
+    background-color: #fff;
+}

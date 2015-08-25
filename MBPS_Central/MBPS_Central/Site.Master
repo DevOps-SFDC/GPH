@@ -1,0 +1,513 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MBPS_Central.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title><%: Page.Title %> - MBPS Centrum</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="~/bootstrap/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- dataTables CSS -->
+    <link href="~/bootstrap/css/plugins/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- Timeline CSS -->
+    <link href="~/bootstrap/css/plugins/timeline.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/bootstrap/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="~/bootstrap/css/plugins/morris.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <%--<link href="~/bootstrap/font-awesome-4.1.0/css/font-awesome.css" rel="stylesheet"  />--%>
+    <link href="~/bootstrap/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet"  />
+    
+    <%-- jQuery UI CSS --%>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+
+    <!-- Custom Overlay -->
+    <link href="~/Content/overlay.css" rel="stylesheet" />
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <asp:PlaceHolder runat="server">
+        <!-- jQuery -->
+        <script src="<%: ResolveUrl("~/bootstrap/js/jquery.js") %>"></script>
+        <script src="<%: ResolveUrl("~/Content/jquery-ui.js") %>"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="<%: ResolveUrl("~/bootstrap/js/bootstrap.min.js") %>"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="<%: ResolveUrl("~/bootstrap/js/plugins/metisMenu/metisMenu.min.js") %>"></script>
+
+        <!-- dataTables Plugin JavaScript -->
+        <script src="<%: ResolveUrl("~/bootstrap/js/plugins/dataTables/jquery.dataTables.js") %>"></script>
+        <script src="<%: ResolveUrl("~/bootstrap/js/plugins/dataTables/dataTables.bootstrap.js") %>"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <%--<script src="<%: ResolveUrl("~/bootstrap/js/plugins/morris/raphael.min.js") %>"></script>
+        <script src="<%: ResolveUrl("~/bootstrap/js/plugins/morris/morris.min.js") %>"></script>
+        <script src="<%: ResolveUrl("~/bootstrap/js/plugins/morris/morris-data.js") %>"></script>--%>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="<%: ResolveUrl("~/bootstrap/js/sb-admin-2.js") %>"></script>
+        
+        <script src="<%: ResolveUrl("~/Scripts/jquery.scrollTo.min.js") %>"></script>
+        <script src="<%: ResolveUrl("~/Scripts/spin.js") %>"></script>
+        <script src="<%: ResolveUrl("~/Scripts/moment.min.js") %>"></script>
+        
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="<%: ResolveUrl("~/bootstrap/html5shiv.js") %>"></script>
+        <script src="<%: ResolveUrl("~/bootstrap/respond.min.js") %>"></script>
+        <![endif]-->
+        <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
+    </asp:PlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server" EnablePartialRendering="true">
+            <Scripts>
+            </Scripts>
+        </asp:ScriptManager>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<%: ResolveUrl("~/Default.aspx") %>">MBPS Central</a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <%--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-envelope fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <strong>John Smith</strong>
+                                        <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                    </div>
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <strong>John Smith</strong>
+                                        <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                    </div>
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <strong>John Smith</strong>
+                                        <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                    </div>
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>Read All Messages</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-messages -->
+                    </li>--%>
+                    <%--<!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-tasks">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <p>
+                                            <strong>Task 1</strong>
+                                            <span class="pull-right text-muted">40% Complete</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                <span class="sr-only">40% Complete (success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <p>
+                                            <strong>Task 2</strong>
+                                            <span class="pull-right text-muted">20% Complete</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                <span class="sr-only">20% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <p>
+                                            <strong>Task 3</strong>
+                                            <span class="pull-right text-muted">60% Complete</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                <span class="sr-only">60% Complete (warning)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <p>
+                                            <strong>Task 4</strong>
+                                            <span class="pull-right text-muted">80% Complete</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                <span class="sr-only">80% Complete (danger)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Tasks</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-tasks -->
+                    </li>
+                    <!-- /.dropdown -->--%>
+                    <%--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i>New Comment
+                                   
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i>3 New Followers
+                                   
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i>Message Sent
+                                   
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-tasks fa-fw"></i>New Task
+                                   
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i>Server Rebooted
+                                   
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-alerts -->
+                    </li>
+                    <!-- /.dropdown -->--%>
+                    <%--<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>--%>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <%--<div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>--%>
+                                <!-- /input-group -->
+
+                                <span style="font-weight:600">Workday ID: </span>
+                                <asp:Label ID="lblWDID" runat="server" Font-Underline="true"></asp:Label><br />
+                                <span style="font-weight:600">User: </span>
+                                <asp:Label ID="lblName" runat="server" Font-Underline="true"></asp:Label><br />
+                                <span style="font-weight:600">Date: </span><span style="text-decoration:underline"><%: DateTime.Now.ToShortDateString() %></span>
+                            </li>
+                            <li><!-- Dashboard Homepage -->
+                                <a class="active" href="<%: ResolveUrl("~/Default.aspx") %>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            </li>
+                            <li><!-- Team Management -->
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Team Management<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/TMgt/TeamSet.aspx") %>"><i class="fa fa-cubes fa-fw"></i> Team Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/TMgt/StaffMgt.aspx") %>"><i class="fa fa-users fa-fw"></i> Staff Management</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/HeadCount/Headcount.aspx") %>"><i class="fa fa-signal fa-fw"></i> Headcount Forecast</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-calendar fa-fw"></i> Team Attendance<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="<%: ResolveUrl("~/TMgt/ShiftMgt.aspx") %>"><i class="fa fa-clock-o fa-fw"></i> Shift Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="<%: ResolveUrl("~/TMgt/AttendanceMgt.aspx") %>"><i class="fa fa-list-ol fa-fw"></i> Staff Attendance</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><!-- OPT -->
+                                <a href="#"><i class="fa fa-tasks fa-fw"></i> OPT<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/OPT/Eve.aspx") %>"><i class="fa fa-list fa-fw"></i> Performance Tracker</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/OPT/EveLeadView.aspx") %>"><i class="fa fa-star fa-fw"></i> Leader View</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/OPT/EveSettings.aspx") %>"><i class="fa fa-cogs fa-fw"></i> OPT Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><!-- Table F -->
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Table F<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/TableF/MyMetric.aspx") %>"><i class="fa fa-dot-circle-o fa-fw"></i> My Metrics</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/TableF/MetricSettings.aspx") %>"><i class="fa fa-sliders fa-fw"></i> Metrics Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><!-- Reports -->
+                                <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/Reports/DailyLogs.aspx") %>"><i class="fa fa-tag fa-fw"></i> Daily Logs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-area-chart fa-fw"></i> Perfomance Reports</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><!-- Tools -->
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i> Tools<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/Tools/VOC.aspx") %>"><i class="fa fa-microphone fa-fw"></i> Voice of the Customer</a>
+                                    </li>
+                                    <li>
+                                        <a href="<%: ResolveUrl("~/Tools/ReAR.aspx") %>"><i class="fa fa-ticket fa-fw"></i> ReAR Ticketing</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-building fa-fw"></i> Room Reservation</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><!-- Link -->
+                                <a href="#"><i class="fa fa-code-fork fa-fw"></i> Links<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="http://centralsharepoint/MBPS/Pages/Default.aspx" target="_blank"><i class="fa fa-cube fa-fw"></i> Sharepoint</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://mfcentral/mfcentral/preference/index/" target="_blank"><i class="fa fa-globe fa-fw"></i> MFCentral</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<%: ResolveUrl("~/About.aspx") %>" target="_blank"><i class="fa fa-info fa-fw"></i> About</a>
+                            </li>
+                            <%--<li>
+                                <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Forms</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i>UI Elements<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="panels-wells.html">Panels and Wells</a>
+                                    </li>
+                                    <li>
+                                        <a href="buttons.html">Buttons</a>
+                                    </li>
+                                    <li>
+                                        <a href="notifications.html">Notifications</a>
+                                    </li>
+                                    <li>
+                                        <a href="typography.html">Typography</a>
+                                    </li>
+                                    <li>
+                                        <a href="grid.html">Grid</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Multi-Level Dropdown<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.nav-third-level -->
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i>Sample Pages<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">Blank Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">Login Page</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>--%>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+            
+            <!-- /#page-wrapper -->
+
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            
+        </div>
+        <%--<footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                </div>
+            </div>
+        </footer>--%>
+    </form>
+</body>
+</html>
